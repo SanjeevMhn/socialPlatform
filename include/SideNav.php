@@ -10,9 +10,9 @@
                     echo"<li class='menu-list__item'>
                             <a class='menu-list__link'>
                                 <div class='icon-container'>
-                                    <ion-icon name=".$menuIcons[$i]."
+                                    <ion-icon name=".$menuIcons[$i]."></ion-icon>
                                 </div>
-                                <div class='link-text'>".$menuItems[$i]."
+                                <div class='link-text'>".$menuItems[$i]."></div>
                             </a>
                         </li>";
                 }

@@ -1,4 +1,4 @@
-const projectUrl = "localhost/MI_PROJECTS/socialPlatform/";
+//const projectUrl = "localhost/MI_PROJECTS/socialPlatform/";
 
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
@@ -10,6 +10,7 @@ const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const phpToHtml = require('gulp-php2html');
+const phpServer = require('gulp-connect-php');
 const browserSync = require('browser-sync').create();
 
 let paths = {
@@ -28,10 +29,7 @@ let paths = {
 }
 
 function styles(){
-    let plugins = [
-        autoprefixer(),
-        css()
-    ]
+    
     gulp.src(paths.styles.src)
     .pipe(sass())
     .on('error',sass.logError)
@@ -40,6 +38,7 @@ function styles(){
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(postcss([autoprefixer('last 2 versions')]))
     .pipe(sourcemaps.write('./'))
+    .pipe(postcss([cssnano()]))
     .pipe(rename({
         suffix: '.min'
     }))
@@ -58,27 +57,35 @@ function scripts(){
     .pipe(browserSync.stream())
 }
 
-function phpToHtml(){
+function phpHtml(){
     gulp.src(paths.php.src)
     .pipe(phpToHtml())
-    .pipe(paths.php.dest)
-    .pipe(browserSync.stream())
+    .pipe(gulp.dest(paths.php.dest))
+    .pipe(browserSync.stream());
 }
 
 function watch(){
-    browserSync.init({
-        proxy: projectUrl,
-    });
+
+    phpServer.server({
+        port: 8000,
+        keepalive: true,
+        base: "./"
+    },function(){
+        browserSync.init({
+            proxy: '127.0.0.1:8000'
+        });
+    })
 
     gulp.watch(paths.styles.src).on('change',gulp.series(styles));
-    gulp.watch(paths.script.dest).on('change',gulp.series(scripts));
-    gulp.watch("./*.php").on('change',gulp.series(phpToHtml));
+    gulp.watch(paths.script.src).on('change',gulp.series(scripts));
+    gulp.watch('./**/*.php',gulp.series(phpHtml,browserSync.reload));
 }
 
 exports.styles = styles;
 exports.scripts = scripts;
 exports.watch = watch;
+exports.phpHtml = phpHtml;
 
-let build = gulp.parallel(styles,scripts,watch);
+let build = gulp.parallel(styles,scripts,phpHtml,watch);
 
 exports.default = watch;
