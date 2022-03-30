@@ -38,7 +38,7 @@ function styles(){
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(postcss([autoprefixer('last 2 versions')]))
     .pipe(sourcemaps.write('./'))
-    .pipe(postcss([cssnano()]))
+    .pipe(postcss([css()]))
     .pipe(rename({
         suffix: '.min'
     }))
