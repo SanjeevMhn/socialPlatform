@@ -9,6 +9,7 @@ const css = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
+const phpToHtml = require('gulp-php2html');
 const browserSync = require('browser-sync').create();
 
 let paths = {
@@ -19,6 +20,10 @@ let paths = {
     script: {
         src: "./js/**/*.js",
         dest: "./dist/js"
+    },
+    php:{
+        src: "./index.php",
+        dest: "./"
     }
 }
 
@@ -53,6 +58,13 @@ function scripts(){
     .pipe(browserSync.stream())
 }
 
+function phpToHtml(){
+    gulp.src(paths.php.src)
+    .pipe(phpToHtml())
+    .pipe(paths.php.dest)
+    .pipe(browserSync.stream())
+}
+
 function watch(){
     browserSync.init({
         proxy: projectUrl,
@@ -60,7 +72,7 @@ function watch(){
 
     gulp.watch(paths.styles.src).on('change',gulp.series(styles));
     gulp.watch(paths.script.dest).on('change',gulp.series(scripts));
-    gulp.watch("./*.php").on('change',browserSync.reload);
+    gulp.watch("./*.php").on('change',gulp.series(phpToHtml));
 }
 
 exports.styles = styles;
