@@ -33,12 +33,8 @@ function styles(){
     gulp.src(paths.styles.src)
     .pipe(sass())
     .on('error',sass.logError)
-    .pipe(postcss([autoprefixer('last 2 versions')]))
-    .pipe(sourcemaps.init())
     .pipe(gulp.dest(paths.styles.dest))
-    .pipe(postcss([autoprefixer('last 2 versions')]))
-    .pipe(sourcemaps.write('./'))
-    .pipe(postcss([css()]))
+    .pipe(postcss([autoprefixer('last 2 versions'), css()]))
     .pipe(rename({
         suffix: '.min'
     }))
@@ -76,7 +72,7 @@ function watch(){
         });
     })
 
-    gulp.watch(paths.styles.src).on('change',gulp.series(styles));
+    gulp.watch('./scss/**/*.scss').on('change',gulp.series(styles));
     gulp.watch(paths.script.src).on('change',gulp.series(scripts));
     gulp.watch('./**/*.php',gulp.series(phpHtml,browserSync.reload));
 }
