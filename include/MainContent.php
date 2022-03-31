@@ -6,11 +6,11 @@
     <div class="user-content">
         <div class="user-content__info">
             <div class="cover-img">
-                <img src="../assets/images/img2.jpg" alt="">
+                <img src="./assets/images/img2.jpg" alt="">
             </div>
             <div class="profile">
                 <div class="profile__img">
-                    <img src="../assets/images/profiles/26.jpg" alt="">
+                    <img src="./assets/images/profiles/26.jpg" alt="">
                 </div>
                 <div class="profile__user-name">
                     Rohan Smith
@@ -65,7 +65,7 @@
                 </div>
                 <div class="user-info__events">
                     <div class="img-container">
-                        <img src="../assets/images/img3.jpg" alt=""> 
+                        <img src="./assets/images/img3.jpg" alt=""> 
                     </div>
                     <div class="event-details">
                         <h2 class="event-details__name">
@@ -86,7 +86,7 @@
                     </ul>
                     <div class="status-text">
                         <div class="img-container">
-                            <img src="../assets/images/profiles/26.jpg" alt="">
+                            <img src="./assets/images/profiles/26.jpg" alt="">
                         </div>
                         <textarea name="status" id="" cols="30" rows="10" class="status">Write something...</textarea>
                     </div>
