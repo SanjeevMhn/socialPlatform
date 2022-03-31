@@ -122,7 +122,58 @@
                         </button>
                     </div>
                 </div>
-
+                <div class="user-posts__post">
+                    <ul class="post-list">
+                        <?php 
+                            $userName = 'Rohan Smith';
+                            $userProfile = "./assets/images/profiles/26.jpg";
+                            $userPosts = ["./assets/images/img1.jpg","./assets/images/img2.jpg","./assets/images/img3.jpg"];
+                            $userCaptions = ["Red is my favorite color","Sky is not blue","I wish i could swim"];
+                        
+                            for($i=0; $i<count($userPosts); $i++){
+                                echo "
+                                <li class='post-list__item'>
+                                    <div class='header-content'>
+                                        <div class='header-content__profile'>
+                                            <img src=".$userProfile.">
+                                        </div>
+                                        <div class='header-content__data'>
+                                            <div class='user-name'>".$userName."</div>
+                                            <div class='user-action'>added a post</div>
+                                        </div>
+                                        <div class='header-content__more'>
+                                            <ion-icon name='more'></ion-icon>
+                                        </div>
+                                    </div>
+                                    <p class='caption'>".$userCaptions[$i]."</p>
+                                    <div class='post-img'>
+                                        <img src=".$userPosts[$i].">
+                                    </div>
+                                    <ul class='post-details'>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='heart-empty'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>".($i * 2 + 34 * 2)."</div>
+                                        </li>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='chatbubbles'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>".($i*20 + 22)."</div>
+                                        </li>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='share-alt'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>Share</div>
+                                        </li>
+                                    </ul>
+                                </li>";
+                            }
+                        ?>
+                    </ul>
+                </div>
                 
             </div>
         </div>
