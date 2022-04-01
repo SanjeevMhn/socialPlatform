@@ -44,9 +44,7 @@ function styles(){
 
 function scripts(){
     gulp.src(paths.script.src)
-    .pipe(sourcemaps.init())
     .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.script.dest))
     .pipe(concat('app.min.js'))
     .pipe(gulp.dest(paths.script.dest))

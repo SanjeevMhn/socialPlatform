@@ -3,17 +3,21 @@
         background-color: $bg-color;
         color: #fff;
         font-family: 'DM Sans',sans-serif;
-        flex: 1 1 15%;
-        padding: 2rem;
+        flex: 0;
+        padding: 1.5rem;
+        width: 20px;
         border-right: 2px solid $border-color;
+        transition: all 200ms ease-in-out;
         &__header-text{
             text-transform: uppercase;
-            margin: 0;
+            margin-top: 8rem;
             font-size: 1.25rem;
             text-align: center;
             font-weight: 500;
+            transform: rotate(-90deg);
         }
         &__menu{
+            display: none;
             margin-top: 3rem;
             .menu-header-text{
                 font-size: 1.15rem;
@@ -45,6 +49,22 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@media screen and (min-width: 992px){
+    .side-nav{
+        flex: 1 1 15% !important;
+        width: 0 !important;
+        &__header-text{
+            margin: 0 !important;
+            transform: rotate(0deg) !important;
+            font-size: 1.12rem !important;
+            padding: 0 !important;
+        }
+        &__menu{
+            display: block !important;
         }
     }
 }

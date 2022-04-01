@@ -8,6 +8,16 @@
 *::after{
     box-sizing: border-box;
 }
+*::-webkit-scrollbar{
+    width: 15px;
+}
+*::-webkit-scrollbar-track{
+    background-color: $bg-color;
+}
+*::-webkit-scrollbar-thumb{
+    border-radius: 8px;
+    background-color: $border-color;
+}
 body{
     padding: 0;
     margin: 0;
@@ -15,4 +25,17 @@ body{
 .main-wrapper{
     display: flex;
     height: 100vh;
+}
+
+@media screen and (min-width: 1440px){
+   .main-wrapper{
+       padding: 0 9rem;
+       background: gray;
+   } 
+}
+@media screen and (min-width: 2560px){
+   .main-wrapper{
+       padding: 0 20rem;
+       background: gray;
+   } 
 }

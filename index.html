@@ -56,10 +56,18 @@
     </nav>
 </aside> 
         <main class="main-content">
-    <form action="#" method="post" class="search-form">
-        <input type="text" name="search" id="" class="search-form__input" placeholder="Search..">
-        <ion-icon name="search"></ion-icon>
-    </form>
+    <div class="main-content__header">
+        <button class="side-nav-toggler">
+            <div class="icon-container">
+                <ion-icon name="menu"></ion-icon>
+            </div>
+        </button>
+        <form action="#" method="post" class="search-form">
+            <input type="text" name="search" id="" class="search-form__input" placeholder="Search..">
+            <ion-icon name="search"></ion-icon>
+        </form>
+    </div>
+
     <div class="user-content">
         <div class="user-content__info">
             <div class="cover-img">
@@ -183,7 +191,7 @@
                                             <img src=./assets/images/profiles/26.jpg>
                                         </div>
                                         <div class='header-content__data'>
-                                            <h2 class='user-name'>Rohan Smith</h2>
+                                            <div class='user-name'>Rohan Smith</div>
                                             <div class='user-action'>added a post</div>
                                         </div>
                                         <div class='header-content__more'>
@@ -194,6 +202,26 @@
                                     <div class='post-img'>
                                         <img src=./assets/images/img1.jpg>
                                     </div>
+                                    <ul class='post-details'>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='heart-empty'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>68</div>
+                                        </li>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='chatbubbles'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>22</div>
+                                        </li>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='share-alt'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>Share</div>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class='post-list__item'>
                                     <div class='header-content'>
@@ -201,7 +229,7 @@
                                             <img src=./assets/images/profiles/26.jpg>
                                         </div>
                                         <div class='header-content__data'>
-                                            <h2 class='user-name'>Rohan Smith</h2>
+                                            <div class='user-name'>Rohan Smith</div>
                                             <div class='user-action'>added a post</div>
                                         </div>
                                         <div class='header-content__more'>
@@ -212,6 +240,26 @@
                                     <div class='post-img'>
                                         <img src=./assets/images/img2.jpg>
                                     </div>
+                                    <ul class='post-details'>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='heart-empty'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>70</div>
+                                        </li>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='chatbubbles'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>42</div>
+                                        </li>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='share-alt'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>Share</div>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class='post-list__item'>
                                     <div class='header-content'>
@@ -219,7 +267,7 @@
                                             <img src=./assets/images/profiles/26.jpg>
                                         </div>
                                         <div class='header-content__data'>
-                                            <h2 class='user-name'>Rohan Smith</h2>
+                                            <div class='user-name'>Rohan Smith</div>
                                             <div class='user-action'>added a post</div>
                                         </div>
                                         <div class='header-content__more'>
@@ -230,6 +278,26 @@
                                     <div class='post-img'>
                                         <img src=./assets/images/img3.jpg>
                                     </div>
+                                    <ul class='post-details'>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='heart-empty'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>72</div>
+                                        </li>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='chatbubbles'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>62</div>
+                                        </li>
+                                        <li class='post-details__item'>
+                                            <div class='icon-container'>
+                                                <ion-icon name='share-alt'><ion-icon>
+                                            </div> 
+                                            <div class='desc'>Share</div>
+                                        </li>
+                                    </ul>
                                 </li>                    </ul>
                 </div>
                 
@@ -237,7 +305,31 @@
         </div>
     </div>
 </main>        <aside class="user-profile">
-    <h2>Aside user profile</h2>
+    <ul class="user-profile__header">
+        <li class="list-item">
+            <div class="icon-container">
+                <ion-icon name="mail"></ion-icon>
+            </div>
+        </li>
+        <li class="list-item">
+            <div class="icon-container">
+                <ion-icon name="notifications"></ion-icon>
+            </div>
+        </li>
+        <li class="list-item">
+            <div class="user">
+                <div class="user__name">
+                    Rohan Smith
+                </div>
+                <div class="user__img">
+                    <img src="./assets/images/profiles/26.jpg" alt="">
+                </div>
+            </div>
+            <div class="icon-container">
+                <ion-icon name="arrow-dropdown"></ion-icon>
+            </div>
+        </li>
+    </ul>
 </aside>    </div>
 
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>

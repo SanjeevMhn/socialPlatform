@@ -1,8 +1,16 @@
 <main class="main-content">
-    <form action="#" method="post" class="search-form">
-        <input type="text" name="search" id="" class="search-form__input" placeholder="Search..">
-        <ion-icon name="search"></ion-icon>
-    </form>
+    <div class="main-content__header">
+        <button class="side-nav-toggler">
+            <div class="icon-container">
+                <ion-icon name="menu"></ion-icon>
+            </div>
+        </button>
+        <form action="#" method="post" class="search-form">
+            <input type="text" name="search" id="" class="search-form__input" placeholder="Search..">
+            <ion-icon name="search"></ion-icon>
+        </form>
+    </div>
+
     <div class="user-content">
         <div class="user-content__info">
             <div class="cover-img">
