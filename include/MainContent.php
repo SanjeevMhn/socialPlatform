@@ -5,10 +5,17 @@
                 <ion-icon name="menu"></ion-icon>
             </div>
         </button>
-        <form action="#" method="post" class="search-form">
-            <input type="text" name="search" id="" class="search-form__input" placeholder="Search..">
-            <ion-icon name="search"></ion-icon>
-        </form>
+        <div class="search-container">
+            <form action="#" method="post" class="search-form">
+                <input type="text" name="search" id="" class="search-form__input" placeholder="Search..">
+                <ion-icon name="search"></ion-icon>
+            </form>
+        </div>
+        <button class="user-profile-toggler">
+            <div class="icon-container">
+                <ion-icon name="arrow-back"></ion-icon>
+            </div>
+        </button>
     </div>
 
     <div class="user-content">
@@ -146,8 +153,10 @@
                                             <img src=".$userProfile.">
                                         </div>
                                         <div class='header-content__data'>
-                                            <div class='user-name'>".$userName."</div>
-                                            <div class='user-action'>added a post</div>
+                                            <div class='user-name'>
+                                                ".$userName."
+                                                added a post
+                                            </div>
                                         </div>
                                         <div class='header-content__more'>
                                             <ion-icon name='more'></ion-icon>

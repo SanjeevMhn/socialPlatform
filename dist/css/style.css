@@ -77,27 +77,42 @@
 .main-wrapper .main-content__header {
   display: flex;
 }
-.main-wrapper .main-content__header .side-nav-toggler {
+.main-wrapper .main-content__header .side-nav-toggler, .main-wrapper .main-content__header .user-profile-toggler {
   flex: 1 1 40px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
   outline: none;
   background-color: #151728;
   border: none;
-  border-right: 2px solid #272a3a;
   color: #fff;
   cursor: pointer;
 }
-.main-wrapper .main-content__header .side-nav-toggler .icon-container ion-icon {
-  font-size: 1.75rem;
+.main-wrapper .main-content__header .side-nav-toggler .icon-container ion-icon, .main-wrapper .main-content__header .user-profile-toggler .icon-container ion-icon {
+  font-size: 1.5rem;
 }
-.main-wrapper .main-content__header .search-form {
-  color: #fff;
+.main-wrapper .main-content__header .side-nav-toggler {
+  border-right: 2px solid #272a3a;
+}
+.main-wrapper .main-content__header .user-profile-toggler {
+  border-left: 2px solid #272a3a;
+}
+.main-wrapper .main-content__header .search-container {
+  min-height: 40px;
   flex: 1 1 100%;
+}
+.main-wrapper .main-content__header .search-container .search-form {
+  color: #fff;
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
+  min-height: 40px;
 }
-.main-wrapper .main-content__header .search-form__input {
+.main-wrapper .main-content__header .search-container .search-form__input {
   width: 100%;
+  height: 100%;
+  min-height: 40px;
   font-size: 1.15rem;
   padding: 0.5rem;
   background-color: #151728;
@@ -105,14 +120,14 @@
   border: none;
   color: #fff;
 }
-.main-wrapper .main-content__header .search-form ion-icon {
+.main-wrapper .main-content__header .search-container .search-form ion-icon {
   position: absolute;
   font-size: 1.2rem;
   right: 15px;
   opacity: 0.8;
 }
 .main-wrapper .main-content .user-content {
-  padding: 1.25rem;
+  padding: 0.65rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -310,8 +325,8 @@
   gap: 1rem;
 }
 .main-wrapper .main-content .user-content__timeline .user-posts__add-status .status-text .img-container {
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   position: relative;
   display: flex;
@@ -367,6 +382,9 @@
   margin: 0;
   font-size: 1.3rem;
 }
+.main-wrapper .main-content .user-content__timeline .user-posts__add-status .actions__list .list-item .desc {
+  display: none;
+}
 .main-wrapper .main-content .user-content__timeline .user-posts__add-status .actions__btn {
   outline: none;
   border: none;
@@ -387,7 +405,7 @@
   margin: 0;
 }
 .main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item {
-  padding: 1.25rem;
+  padding: 1rem;
   background-color: #151728;
   border-radius: 8px;
   display: flex;
@@ -398,12 +416,12 @@
 .main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item .header-content {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 .main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item .header-content__profile {
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   display: flex;
+  flex: 0 0 60px;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -416,17 +434,17 @@
   position: absolute;
 }
 .main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item .header-content__data {
-  padding: 0;
   margin: 0;
   display: flex;
-  gap: 0.5rem;
-  align-items: flex-end;
+  align-items: center;
+  padding: 0 0.5rem;
+  flex: 1 1 70%;
 }
 .main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item .header-content__data .user-name {
-  font-size: 1.17rem;
-}
-.main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item .header-content__data .user-action {
-  font-size: 1.12rem;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 .main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item .header-content__data .user-name, .main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item .header-content__data .user-action {
   font-family: "DM Sans", sans-serif;
@@ -446,7 +464,7 @@
 }
 .main-wrapper .main-content .user-content__timeline .user-posts__post .post-list__item .post-img {
   margin-top: 0.75rem;
-  min-height: 350px;
+  min-height: 270px;
   width: 100%;
   position: relative;
   display: flex;
@@ -480,7 +498,7 @@
 }
 
 @media screen and (min-width: 992px) {
-  .main-content__header .side-nav-toggler {
+  .main-content__header .side-nav-toggler, .main-content__header .user-profile-toggler {
     display: none !important;
   }
   .main-content .user-content__info .profile {
@@ -493,36 +511,66 @@
   }
 }
 .main-wrapper .user-profile {
-  flex: 1 1 15%;
+  z-index: 120;
   background-color: #151728;
   color: #fff;
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
 }
 .main-wrapper .user-profile__header {
-  display: flex;
+  display: none;
   align-items: center;
   list-style-type: none;
-  padding: 0;
+  position: relative;
+  gap: 0.5rem;
   margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #151728;
   font-family: "DM Sans", sans-serif;
 }
 .main-wrapper .user-profile__header .list-item {
+  padding: 0.75rem;
   display: flex;
   align-items: center;
-  background-color: red;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  gap: 0.4rem;
+}
+.main-wrapper .user-profile__header .list-item:nth-child(1), .main-wrapper .user-profile__header .list-item:nth-child(2) {
+  display: none;
+}
+.main-wrapper .user-profile__header .list-item .icon-container ion-icon {
+  font-size: 1.5rem;
 }
 .main-wrapper .user-profile__header .list-item .user {
   display: flex;
   align-items: center;
+  flex: 1 1 100%;
+  gap: 0.45rem;
+}
+.main-wrapper .user-profile__header .list-item .user__name {
+  text-overflow: ellipsis;
+  flex: 1 1 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 40px;
 }
 .main-wrapper .user-profile__header .list-item .user__img {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
+  flex: 0 0 35px;
   border-radius: 50%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  flex: 0 1 35px;
 }
 .main-wrapper .user-profile__header .list-item .user__img img {
   height: 100%;
@@ -530,7 +578,53 @@
   position: absolute;
   object-fit: cover;
 }
+.main-wrapper .user-profile__online-friends-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 5rem;
+  width: 100%;
+}
+.main-wrapper .user-profile__online-friends-list .list-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.main-wrapper .user-profile__online-friends-list .list-item .img-container {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.main-wrapper .user-profile__online-friends-list .list-item .img-container img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.main-wrapper .user-profile__online-friends-list .list-item .friend-name {
+  flex: 1 1 60%;
+  font-family: "DM Sans", sans-serif;
+  max-width: 60%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
+@media screen and (min-width: 992px) {
+  .main-wrapper .user-profile {
+    flex: 1 1 15%;
+    display: flex !important;
+  }
+  .main-wrapper .user-profile__header {
+    display: flex !important;
+  }
+}
 *,
 *::before,
 *::after {
